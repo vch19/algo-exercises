@@ -2,12 +2,11 @@ package leetcode;
 
 public class MinimumPathSum {
     public static int minPathSum(int[][] grid) {
-        //fix indexOutOfBound
-        for (int i = 1; i < grid.length; i++) {
+        for (int i = 1; i < grid[0].length; i++) {
             grid[0][i] = grid[0][i - 1] + grid[0][i];
         }
 
-        for (int i = 1; i < grid[0].length; i++) {
+        for (int i = 1; i < grid.length; i++) {
             grid[i][0] = grid[i - 1][0] + grid[i][0];
         }
 
