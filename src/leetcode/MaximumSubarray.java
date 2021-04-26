@@ -2,26 +2,18 @@ package leetcode;
 
 public class MaximumSubarray {
     public int maxSubArray(int[] nums) {
-        if (nums.length == 0) {
-            return -1;
-        } else if (nums.length == 1) {
-            return nums[0];
-        }
-
-        int sum = 0;
+        int[] dp = new int[nums.length];
+        dp[0] = nums[0];
         int max = Integer.MIN_VALUE;
 
-        for (int i = 0; i < nums.length; i++) {
-            if (sum < 0) {
-                sum = nums[i];
-            } else {
-                sum += nums[i];
-            }
-            if (sum > max) {
-                max = sum;
-            }
+        for (int i = 1; i < nums.length; i++) {
+            dp[i] = Math.max(nums[i], dp[i - 1] + nums[i]);
         }
-        System.out.println(max);
+
+        for (int j : dp) {
+            max = Math.max(max, j);
+        }
+
         return max;
     }
 

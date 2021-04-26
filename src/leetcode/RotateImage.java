@@ -9,6 +9,7 @@ public class RotateImage {
                 matrix[i][j] = temp;
             }
         }
+
         int firstPointer = 0;
         int secondPointer = matrix.length - 1;
 
