@@ -3,7 +3,7 @@ package leetcode;
 public class ValidPalindrome {
 
     public boolean isPalindrome(String s) {
-        if (s.isEmpty() || s == null) {
+        if (s.isEmpty()) {
             return false;
         }
         int startPointer = 0;
