@@ -5,25 +5,23 @@ import java.util.List;
 
 public class GenerateParentheses {
 
-    public List<String> generateParenthesis(int n) {
+    public static List<String> generateParenthesis(int n) {
         List<String> result = new ArrayList<>();
-        backtrack(result, "", 0, 0, n);
-        System.out.println(result);
+
+        recursion(result, "", n, n);
+
         return result;
     }
 
-    private void backtrack(List<String> result, String combo, int open, int close, int length) {
-        if (combo.length() == length * 2) {
-            result.add(combo);
-            return;
+    private static void recursion(List<String> parenthesis, String current, int open, int close) {
+        if (open == 0 && close == 0) {
+            parenthesis.add(current);
         }
-
-        if (open < length) {
-            backtrack(result, combo + "(", open + 1, close, length);
+        if (open != 0) {
+            recursion(parenthesis, current + "(", open - 1, close);
         }
-
-        if (close < open) {
-            backtrack(result, combo + ")", open, close + 1, length);
+        if (close > open) {
+            recursion(parenthesis, current + ")", open, close - 1);
         }
     }
 
