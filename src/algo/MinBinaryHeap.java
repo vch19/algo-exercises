@@ -18,7 +18,7 @@ public final class MinBinaryHeap {
 
     public int peek() {
         if (isEmpty()) {
-            throw new NoSuchElementException("Heap is empty");
+            throw new NoSuchElementException("MaxHeap is empty");
         }
 
         return heap[0];
@@ -26,7 +26,7 @@ public final class MinBinaryHeap {
 
     public int remove() {
         if (isEmpty()) {
-            throw new NoSuchElementException("Heap is empty");
+            throw new NoSuchElementException("MaxHeap is empty");
         }
 
         int value = heap[0];
