@@ -1,29 +1,6 @@
 package leetcode;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
 public class NumberOfIslands {
-
-//  public static int numIslands(char[][] grid) {
-//    int count = 0;
-//    int dummy = 0;
-//
-//    for (int i = 0; i < grid.length; i++) {
-//      for (int j = 0; j < grid[0].length; j++) {
-//        if (grid[i][j] == '1'
-//            && (((i > 0 && j > 0 && (grid[i][j - 1] == '1' || grid[i - 1][j] == '1'))) || (i == 0
-//            && j > 0 && grid[i][j - 1] == '1') || (j == 0 && i > 0 && grid[i - 1][j] == '1'))) {
-//          dummy++;
-//        } else if (grid[i][j] == '1') {
-//          count++;
-//        }
-//      }
-//    }
-//    return count;
-//  }
 
   public static int numIslands(char[][] grid) {
     int count = 0;
