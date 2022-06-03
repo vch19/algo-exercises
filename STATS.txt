@@ -1,0 +1,21 @@
+Prefix Sum
+ 1) Subarray Sum Equals K [M|0] [560] Repeat
+ 2) Subarray Product Less That K [M|0] [713] Almost solve Repeat
+ 3) MaximumProductSubarray [M|1] [152] Solve in paper, but cannot implement right solution
+ 4) Find Pivot Index [E|4] [724]
+
+Sliding Window:
+ 1) The Smallest Subarray with a Greater Sum [M|5]
+ 2) The Longest Substring with Maximum K Distinct Characters [M|4]
+
+DFS:
+ 1) Number of Islands [M|0] [200]
+
+Hits:
+ 1) Если мы нужно посчитать максимальное произведение подмассива, нам нужно запоминать последнию отрицательное произвидение
+    и считать последующие элементы для него тоже [152]
+ 2) Если нужно найти точку которая разделяет массив на два одинаковым подмассива по сумме, тогда
+    сначало нужно посчитать сумму всего массива, и от нее отнимать текущую левую сумму и текущий элемент [724]
+ 3) Если нужно определить К максимум чего-то, как правило это можно сохранять в мапу
+ 4) Для определения количества чего-то смежного в матрице, можно использовать Flood Fill подход.
+    В данном подходе мы прошлись по матрице и поставили 0 там где есть пересечение с другими элементами [200]
