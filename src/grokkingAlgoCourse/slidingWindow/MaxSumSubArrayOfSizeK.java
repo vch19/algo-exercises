@@ -1,4 +1,4 @@
-package grokkingAlgoCourse;
+package grokkingAlgoCourse.slidingWindow;
 
 public class MaxSumSubArrayOfSizeK {
 

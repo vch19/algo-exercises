@@ -1,4 +1,4 @@
-package grokkingAlgoCourse;
+package grokkingAlgoCourse.slidingWindow;
 
 import java.util.HashMap;
 import java.util.Map;

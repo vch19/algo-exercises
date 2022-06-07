@@ -1,3 +1,6 @@
+Mocks:
+ 1) 06.06.2022 => Провалил, не смог решить задачу на preorder & inorder
+
 Prefix Sum
  1) Subarray Sum Equals K [M|0] [560] Repeat
  2) Subarray Product Less That K [M|0] [713] Almost solve Repeat
@@ -7,9 +10,19 @@ Prefix Sum
 Sliding Window:
  1) The Smallest Subarray with a Greater Sum [M|5]
  2) The Longest Substring with Maximum K Distinct Characters [M|4]
+ 3) Max Consecutive Ones III [M|3]
+ 4) Permutation of String [M|4]
+ 5) String anagrams [M|5]
+ 6) Substrings of Size Three with Distinct Characters [E|4]
 
 DFS:
  1) Number of Islands [M|0] [200]
+
+Heap:
+ 1) Sort Characters By Frequency [M|4] [451]
+
+Inorder & Postorder & Levelorder:
+  1)
 
 Hits:
  1) Если мы нужно посчитать максимальное произведение подмассива, нам нужно запоминать последнию отрицательное произвидение
@@ -19,3 +32,6 @@ Hits:
  3) Если нужно определить К максимум чего-то, как правило это можно сохранять в мапу
  4) Для определения количества чего-то смежного в матрице, можно использовать Flood Fill подход.
     В данном подходе мы прошлись по матрице и поставили 0 там где есть пересечение с другими элементами [200]
+ 5) Для посчета анаграм лучше юзать sliding window и хэш таблицу для посчета
+ 6) Если в задаче нужно отсортировать по частоте, в этом случае нам нужно юзать Heap.
+    При восстановлении, нам нужно вытягивать элемент и повторять операцию с ним нужное кол раз. [451]
