@@ -1,10 +1,10 @@
 Mocks:
- 1) 06.06.2022 => Провалил, не смог решить задачу на preorder & inorder
+ 1) 06.06.2022 => Провалил, не смог решить задачу на preorder & inorder (мне кажется задача unfair)
 
 Prefix Sum
- 1) Subarray Sum Equals K [M|0] [560] Repeat
- 2) Subarray Product Less That K [M|0] [713] Almost solve Repeat
- 3) MaximumProductSubarray [M|1] [152] Solve in paper, but cannot implement right solution
+ 1) Subarray Sum Equals K [M|0] [560] [R]
+ 2) Subarray Product Less That K [M|0] [713] [R]
+ 3) MaximumProductSubarray [M|1] [152] [R]
  4) Find Pivot Index [E|4] [724]
 
 Sliding Window:
@@ -14,15 +14,21 @@ Sliding Window:
  4) Permutation of String [M|4]
  5) String anagrams [M|5]
  6) Substrings of Size Three with Distinct Characters [E|4]
+ 5) Minimum Window Substring [H|4]
 
 DFS:
- 1) Number of Islands [M|0] [200]
+ 1) Number of Islands [M|0] [200] [R]
 
 Heap:
  1) Sort Characters By Frequency [M|4] [451]
 
+Merge intervals:
+ 1) Merge Intervals [M|4] [56]
+ 2) Insert Interval [M|0] [57] [R]
+ 3) Remove Covered Intervals [M|3] Can't write right comparator
+
 Inorder & Postorder & Levelorder:
-  1)
+  1) Binary Tree Level Order Traversal [M|0] [102] [R]
 
 Hits:
  1) Если мы нужно посчитать максимальное произведение подмассива, нам нужно запоминать последнию отрицательное произвидение
@@ -35,3 +41,4 @@ Hits:
  5) Для посчета анаграм лучше юзать sliding window и хэш таблицу для посчета
  6) Если в задаче нужно отсортировать по частоте, в этом случае нам нужно юзать Heap.
     При восстановлении, нам нужно вытягивать элемент и повторять операцию с ним нужное кол раз. [451]
+ 7) Для того чтобы соеденить пересекающиеся интервалы их сперва нужно отсортировать по первому значению. [56]
