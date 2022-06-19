@@ -15,6 +15,10 @@ Sliding Window:
  5) String anagrams [M|5]
  6) Substrings of Size Three with Distinct Characters [E|4]
  5) Minimum Window Substring [H|4]
+ 6) Number of Substring Containing All Three Characters [M|0] [R]
+ 7) Longest Substring With at Least K Repeated Characters [M|4] [424] [R]
+ 8) Maximize the Confusion Of An Exam [M|2] [R] Understand idea but cannot pass all cases
+ 9) Longest Substrings of All Vowels Order [M|1] [R]
 
 DFS:
  1) Number of Islands [M|0] [200] [R]
@@ -26,6 +30,8 @@ Merge intervals:
  1) Merge Intervals [M|4] [56]
  2) Insert Interval [M|0] [57] [R]
  3) Remove Covered Intervals [M|3] Can't write right comparator
+ 4) Interval List Intersections [M|3] [R] [986]
+ 5) Conflict appointments [M|5]
 
 Inorder & Postorder & Levelorder:
   1) Binary Tree Level Order Traversal [M|0] [102] [R]
@@ -42,3 +48,9 @@ Hits:
  6) Если в задаче нужно отсортировать по частоте, в этом случае нам нужно юзать Heap.
     При восстановлении, нам нужно вытягивать элемент и повторять операцию с ним нужное кол раз. [451]
  7) Для того чтобы соеденить пересекающиеся интервалы их сперва нужно отсортировать по первому значению. [56]
+ 8) Интервалы пересекаются тогда, когда начало первого больше или равно началу второго и начало первого меньше или равно
+    концу второго [986]
+ 9) Для нахождения строки с К повторением уникальных символов, мы определяем количество уникальных символов, после чего
+    находим самую длинную подстроку с 1...К уникальных символов [424]
+ 10) Если нужно подсчитать строку или символы в лексиграфическом порядке, мы должны помнить что
+     предыдущий символ должен быть меньше чем следующий если не допускаются дубликаты, иначе меньше равняться.
