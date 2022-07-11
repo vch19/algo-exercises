@@ -19,6 +19,8 @@ Sliding Window:
  7) Longest Substring With at Least K Repeated Characters [M|4] [424] [R]
  8) Maximize the Confusion Of An Exam [M|2] [R] Understand idea but cannot pass all cases
  9) Longest Substrings of All Vowels Order [M|1] [R]
+ 10) Maximum Points You Can Obtain From Cards [M|0] [R]
+ 11) Minimum swaps to Group All 1s Together [M|5]
 
 DFS:
  1) Number of Islands [M|0] [200] [R]
@@ -35,6 +37,10 @@ Merge intervals:
 
 Inorder & Postorder & Levelorder:
   1) Binary Tree Level Order Traversal [M|0] [102] [R]
+
+Two Pointers:
+  1) Container With Most Water [M|4]
+  2) Successful Pair of Spell and Potions [M|3] [R]
 
 Hits:
  1) Если мы нужно посчитать максимальное произведение подмассива, нам нужно запоминать последнию отрицательное произвидение
@@ -54,3 +60,4 @@ Hits:
     находим самую длинную подстроку с 1...К уникальных символов [424]
  10) Если нужно подсчитать строку или символы в лексиграфическом порядке, мы должны помнить что
      предыдущий символ должен быть меньше чем следующий если не допускаются дубликаты, иначе меньше равняться.
+ 11)

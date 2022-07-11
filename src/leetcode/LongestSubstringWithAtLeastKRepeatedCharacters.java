@@ -6,63 +6,62 @@ import java.util.stream.Collectors;
 
 public class LongestSubstringWithAtLeastKRepeatedCharacters {
 
-  //Time complexity: O(n * uniqueCharacters)
-  //Todo: add to ankee
   public static int longestSubstring(String s, int k) {
-    int max = 0;
-    int totalUniqueCharacters = uniqueCharacters(s);
-    Map<Character, Integer> freq = new HashMap<>();
+    int maxLength = 0;
+    int totalUniqueLetters = getTotalUniqueLetters(s);
+    Map<Character, Integer> lettersFrequency = new HashMap<>();
 
-    for (int currentMaxUnique = 1; currentMaxUnique <= totalUniqueCharacters; currentMaxUnique++) {
+    for (int currentMaxUniqueLetters = 1; currentMaxUniqueLetters <= totalUniqueLetters;
+        currentMaxUniqueLetters++) {
+      int uniqueLetters = 0;
+      int atLeastK = 0;
       int left = 0;
-      int right = 0;
-      int unique = 0;
-      int countAtLeastK = 0;
 
-      while (right < s.length()) {
-        Character rCh = s.charAt(right);
-        if (unique <= currentMaxUnique) {
-          if (freq.getOrDefault(rCh, 0) == 0) {
-            unique++;
-            freq.put(rCh, freq.getOrDefault(rCh, 0) + 1);
-          } else {
-            freq.put(rCh, freq.getOrDefault(rCh, 0) + 1);
+      for (int right = 0; right < s.length(); right++) {
+        if (uniqueLetters <= currentMaxUniqueLetters) {
+          Character rCh = s.charAt(right);
+          if (!lettersFrequency.containsKey(rCh)) {
+            lettersFrequency.put(rCh, 0);
+            uniqueLetters++;
           }
+          lettersFrequency.put(rCh, lettersFrequency.get(rCh) + 1);
 
-          if (freq.getOrDefault(rCh, 0) == k) {
-            countAtLeastK++;
+          if (lettersFrequency.get(rCh) == k) {
+            atLeastK++;
           }
-          right++;
-        } else {
-          Character lCh = s.charAt(left);
-          if (freq.get(lCh) == k) {
-            countAtLeastK--;
-          }
-          freq.computeIfPresent(lCh, (key, v) -> v - 1);
-          if (freq.get(lCh) == 0) {
-            freq.remove(lCh);
-            unique--;
-          }
-          left++;
         }
 
-        if (unique == currentMaxUnique && unique == countAtLeastK) {
-          max = Math.max(max, right - left);
+        while (uniqueLetters > currentMaxUniqueLetters) {
+          Character lCh = s.charAt(left++);
+          if (lettersFrequency.get(lCh) == k) {
+            atLeastK--;
+          }
+
+          lettersFrequency.put(lCh, lettersFrequency.get(lCh) - 1);
+          if (lettersFrequency.get(lCh) == 0) {
+            lettersFrequency.remove(lCh);
+            uniqueLetters--;
+          }
+        }
+
+        if (uniqueLetters == currentMaxUniqueLetters && uniqueLetters == atLeastK) {
+          maxLength = Math.max(maxLength, right - left + 1);
         }
       }
-      freq.clear();
+      lettersFrequency.clear();
     }
 
-    return max;
+    return maxLength;
   }
 
-  private static int uniqueCharacters(String str) {
-    return str.chars().mapToObj(ch -> (char) ch).collect(Collectors.toSet()).size();
+  private static int getTotalUniqueLetters(String s) {
+    return s.chars().mapToObj(ch -> (char) ch).collect(Collectors.toSet()).size();
   }
 
   public static void main(String[] args) {
 //    System.out.println(longestSubstring("ababbc", 2));//5
 //    System.out.println(longestSubstring("aaabbb", 3));//6
-    System.out.println(longestSubstring("aaaaaaaaabbbcccccddddd", 5));//10
+//    System.out.println(longestSubstring("aaaaaaaaabbbcccccddddd", 5));//10
+    System.out.println(longestSubstring("aaabbb", 3));//10
   }
 }
