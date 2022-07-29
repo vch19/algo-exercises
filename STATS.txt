@@ -21,6 +21,7 @@ Sliding Window:
  9) Longest Substrings of All Vowels Order [M|1] [R]
  10) Maximum Points You Can Obtain From Cards [M|0] [R]
  11) Minimum swaps to Group All 1s Together [M|5]
+ 12) Min Operations To Reduce X To Zero [M|2] [R]
 
 DFS:
  1) Number of Islands [M|0] [200] [R]
@@ -42,6 +43,11 @@ Two Pointers:
   1) Container With Most Water [M|4]
   2) Successful Pair of Spell and Potions [M|3] [R]
 
+Binary Search:
+  1) Search In Rotated Sorted Array [M|2] [R]
+  2) Find Minimum In Rotated Sorted Array [M|4]
+  3) Koko Eating Bananas [M|3] [R]
+
 Hits:
  1) Если мы нужно посчитать максимальное произведение подмассива, нам нужно запоминать последнию отрицательное произвидение
     и считать последующие элементы для него тоже [152]
@@ -60,4 +66,4 @@ Hits:
     находим самую длинную подстроку с 1...К уникальных символов [424]
  10) Если нужно подсчитать строку или символы в лексиграфическом порядке, мы должны помнить что
      предыдущий символ должен быть меньше чем следующий если не допускаются дубликаты, иначе меньше равняться.
- 11)
+ 11) If an array is shifted, first of all we must find a shifted point and after that use our binary search for two parts.
