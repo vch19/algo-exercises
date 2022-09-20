@@ -2,47 +2,31 @@ package leetcode;
 
 public class HouseRobber {
 
-  /*
-    Time complexity: O(n)
-    Space complexity: O(1)
-   */
   public static int rob(int[] nums) {
-    if (nums.length == 0) {
-      return 0;
-    } else if (nums.length == 1) {
+    if (nums.length == 1) {
       return nums[0];
     }
 
-    nums[1] = Math.max(nums[0], nums[1]);
+    int[] dp = new int[nums.length];
+    dp[0] = nums[0];
+    dp[1] = nums[1];
 
-    for (int i = 2; i < nums.length; i++) {
-      nums[i] = Math.max(nums[i - 2] + nums[i], nums[i - 1]);
+    int result = Math.max(dp[0], dp[1]);
+
+    for (int i = 0; i <= nums.length - 3; i++) {
+      dp[i + 2] = Math.max(dp[i] + nums[i + 2], dp[i + 2]);
+      result = Math.max(result, dp[i + 2]);
+      if (i + 3 < nums.length) {
+        dp[i + 3] = Math.max(dp[i] + nums[i + 3], dp[i]);
+        result = Math.max(result, dp[i + 3]);
+      }
     }
 
-    return nums[nums.length - 1];
-  }
-
-  public static int robSecondApproach(int[] nums) {
-    if (nums.length == 0) {
-      return 0;
-    } else if (nums.length == 1) {
-      return nums[0];
-    }
-
-    int rob = 0;
-    int notRob = 0;
-
-    for (int num : nums) {
-      int currentRob = notRob + num; //to rob current house we must be sure that we didn't rob previous
-      notRob = Math.max(rob, notRob);
-      rob = currentRob;
-    }
-
-    return Math.max(rob, notRob);
+    return result;
   }
 
   public static void main(String[] args) {
-    System.out.println(rob(new int[]{2, 7, 9, 3, 1})); //12
+    System.out.println(rob(new int[] {6, 6, 4, 8, 4, 3, 3, 10}));//27
+    System.out.println(rob(new int[]{4, 1, 2, 7, 5, 3, 1}));//14
   }
-
 }

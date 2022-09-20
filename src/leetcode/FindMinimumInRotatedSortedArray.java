@@ -3,32 +3,23 @@ package leetcode;
 public class FindMinimumInRotatedSortedArray {
 
   public static int findMin(int[] nums) {
+    if (nums[0] < nums[nums.length - 1]) {
+      return nums[0];
+    }
+
     int left = 0;
     int right = nums.length - 1;
 
-    if (nums[left] < nums[right]) {
-      return nums[left];
-    }
-
-    while (left < right) {
+    while (right - left != 1) {
       int middle = left + (right - left) / 2;
-
-      if (middle + 1 < nums.length && nums[middle] > nums[middle + 1]) {
-        return nums[middle + 1];
-      }
-
-      if (middle - 1 >= 0 && nums[middle - 1] > nums[middle]) {
-        return nums[middle];
-      }
-
-      if (nums[middle] > nums[right]) {
-        left = middle + 1;
+      if (nums[middle] < nums[left]) {
+        right = middle;
       } else {
-        right = middle - 1;
+        left = middle;
       }
     }
 
-    return -1;
+    return nums[right];
   }
 
   public static void main(String[] args) {
