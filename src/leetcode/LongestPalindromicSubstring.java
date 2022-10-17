@@ -2,43 +2,28 @@ package leetcode;
 
 public class LongestPalindromicSubstring {
 
-    public static String longestPalindrome(String s) {
-        if (s == null || s.length() < 1) return "";
-        int start = 0;
-        int end = 0;
+  public static String longestPalindrome(String s) {
+    int start = 0;
+    int end = 0;
 
-        for (int i = 0; i < s.length(); i++) {
-            int len1 = expandFromMiddle(s, i, i);
-            int len2 = expandFromMiddle(s, i, i + 1);
-            int res = Math.max(len1, len2);
+    int length = s.length();
+    boolean[][] dp = new boolean[s.length() + 1][s.length() + 1];
 
-            if (res > end - start) {
-                /** there we take Palindromic string and after that we divide the string in half
-                 * and first half to current index (i)
-                 */
-                start = i - ((res - 1) / 2);
-                /**
-                 * there we do same operation with the exception of we find another part
-                 */
-                end = i + (res / 2);
-            }
+    for (int i = length - 1; i >= 0; i--) {
+      for (int j = i; j < length; j++) {
+        dp[i][j] = s.charAt(i) == s.charAt(j) && (j - i + 1 <= 2 || dp[i + 1][j - 1]);
+
+        if (dp[i][j] && ((end - start + 1) < (j - i + 1))) {
+          start = i;
+          end = j;
         }
-
-        return s.substring(start, end + 1);
+      }
     }
 
-    public static int expandFromMiddle(String s, int left, int right) {
-        if (s == null || left > right) return 0;
+    return s.substring(start, end + 1);
+  }
 
-        while (left >= 0 && right < s.length() && s.charAt(left) == s.charAt(right)) {
-            left--;
-            right++;
-        }
-
-        return right - left - 1;
-    }
-
-    public static void main(String[] args) {
-        longestPalindrome("babad");
-    }
+  public static void main(String[] args) {
+    System.out.println(longestPalindrome("babad"));
+  }
 }
