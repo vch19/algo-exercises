@@ -1,41 +1,37 @@
 package leetcode;
 
+import java.util.Arrays;
+
 public class HouseRobberII {
 
   public static int rob(int[] nums) {
-    if (nums.length == 0) {
-      return 0;
-    } else if (nums.length == 1) {
-      return nums[0];
+    if (nums.length <= 3) {
+      return Arrays.stream(nums).max().getAsInt();
     }
 
-    return Math.max(rob1(nums), rob2(nums));
+    return Math.max(maxProfit(nums, 0, nums.length - 1), maxProfit(nums, 1, nums.length));
   }
 
-  private static int rob1(int[] nums) {
-    int rob = 0;
-    int notRob = 0;
+  public static int maxProfit(int[] nums, int start, int end) {
+    int[] dp = new int[end - start];
+    int max = 0;
+    dp[0] = nums[start];
+    dp[1] = nums[start + 1];
 
-    for (int i = 0; i < nums.length - 1; i++) {
-      int current = notRob + nums[i];
-      notRob = Math.max(rob, notRob);
-      rob = current;
+    int j = start + 2;
+
+    for (int i = 2; i < dp.length; i++) {
+      if (i == 2) {
+        dp[i] = dp[i - 2] + nums[j];
+      } else {
+        dp[i] = Math.max(dp[i - 2] + nums[j], dp[i - 3] + nums[j]);
+      }
+
+      max = Math.max(max, dp[i]);
+      j++;
     }
 
-    return Math.max(rob, notRob);
-  }
-
-  private static int rob2(int[] nums) {
-    int rob = 0;
-    int notRob = 0;
-
-    for (int i = 1; i < nums.length; i++) {
-      int current = notRob + nums[i];
-      notRob = Math.max(rob, notRob);
-      rob = current;
-    }
-
-    return Math.max(rob, notRob);
+    return max;
   }
 
   public static void main(String[] args) {
