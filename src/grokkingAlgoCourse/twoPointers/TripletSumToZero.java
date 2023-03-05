@@ -1,9 +1,11 @@
 package grokkingAlgoCourse.twoPointers;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 public class TripletSumToZero {
 
@@ -15,7 +17,7 @@ public class TripletSumToZero {
       searchPair(nums, nums[i], i + 1, triplets);
     }
 
-    return triplets.stream().toList();
+    return new ArrayList<>(triplets);
   }
 
   private static void searchPair(int[] nums, int target, int left, Set<List<Integer>> triplets) {
